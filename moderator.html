@@ -1,0 +1,38 @@
+<head>
+  <title>moderator</title>
+</head>
+
+<body>
+  {{> board}}
+</body>
+
+<template name="board">
+	<div class="container" style="margin-top:50px; font-size: 30px;">
+		<h1 style="margin-bottom:50px; font-size: 70px;">Moderator</h1>
+		{{#each questions}}
+      		{{> question}}
+    	{{/each}}
+    	<br/>
+    	<div class="row" style="margin-top:20px">
+    		<div class="span4">
+    			<input id="text" class="input-xlarge" type="textarea"/>
+    		</div>
+    		<div class="span1 add" style="margin-top:-5px"><div class="btn btn-primary btn-large">Ask</div>
+		</div>
+	</div>
+</template>
+
+<template name="question">
+  <div class="row">
+  	<div class="question">
+	    <div class="span10 text">{{text}}</div>
+	    <div class="span1 votes"><strong>{{votes}}</strong></div>
+		{{#if has_not_vote}}
+	    <div class="span1 up" style="margin-top:-10px"><div class="btn btn-primary btn-large">+1</div>
+	    {{else}}
+		<div class="span1 down" style="margin-top:-10px"><div class="btn btn-danger btn-large">-1</div>
+	    {{/if}}
+	</div>
+	<br/><br/><br/>
+  </div>
+</template>
